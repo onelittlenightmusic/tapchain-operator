@@ -1,0 +1,7 @@
+apiVersion: base.tapchain.org/v1
+kind: GeneratorClass
+metadata:
+  name: generatorclass-sample
+spec:
+  # Add fields here
+  foo: bar

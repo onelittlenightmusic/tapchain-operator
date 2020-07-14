@@ -1,0 +1,20 @@
+# permissions for end users to view materialclasses.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: materialclass-viewer-role
+rules:
+- apiGroups:
+  - base.tapchain.org
+  resources:
+  - materialclasses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - base.tapchain.org
+  resources:
+  - materialclasses/status
+  verbs:
+  - get

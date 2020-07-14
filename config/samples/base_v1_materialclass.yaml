@@ -1,0 +1,7 @@
+apiVersion: base.tapchain.org/v1
+kind: MaterialClass
+metadata:
+  name: materialclass-sample
+spec:
+  # Add fields here
+  foo: bar

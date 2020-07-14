@@ -1,0 +1,10 @@
+domain: tapchain.org
+repo: op
+resources:
+- group: base
+  kind: MaterialClass
+  version: v1
+- group: base
+  kind: GeneratorClass
+  version: v1
+version: "2"

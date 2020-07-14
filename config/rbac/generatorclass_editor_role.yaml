@@ -1,0 +1,24 @@
+# permissions for end users to edit generatorclasses.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: generatorclass-editor-role
+rules:
+- apiGroups:
+  - base.tapchain.org
+  resources:
+  - generatorclasses
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - base.tapchain.org
+  resources:
+  - generatorclasses/status
+  verbs:
+  - get

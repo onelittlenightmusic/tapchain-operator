@@ -1,0 +1,20 @@
+# permissions for end users to view generatorclasses.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: generatorclass-viewer-role
+rules:
+- apiGroups:
+  - base.tapchain.org
+  resources:
+  - generatorclasses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - base.tapchain.org
+  resources:
+  - generatorclasses/status
+  verbs:
+  - get
