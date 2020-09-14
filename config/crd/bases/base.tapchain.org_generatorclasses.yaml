@@ -34,9 +34,35 @@ spec:
         spec:
           description: GeneratorClassSpec defines the desired state of GeneratorClass
           properties:
-            foo:
-              description: Foo is an example field of GeneratorClass. Edit GeneratorClass_types.go
-                to remove/update
+            customGroup:
+              type: string
+            icon:
+              type: string
+            inputs:
+              items:
+                properties:
+                  materialClassName:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - materialClassName
+                - name
+                type: object
+              type: array
+            outputs:
+              items:
+                properties:
+                  materialClassName:
+                    type: string
+                  name:
+                    type: string
+                required:
+                - materialClassName
+                - name
+                type: object
+              type: array
+            rule:
               type: string
           type: object
         status:

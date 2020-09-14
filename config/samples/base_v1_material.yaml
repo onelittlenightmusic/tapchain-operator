@@ -1,0 +1,9 @@
+apiVersion: base.tapchain.org/v1
+kind: Material
+metadata:
+  name: sunlight2
+spec:
+  materialClassName: sunlight
+  metrics: 
+  - name: power
+    value: 50

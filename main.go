@@ -82,6 +82,22 @@ func main() {
 		setupLog.Error(err, "unable to create controller", "controller", "GeneratorClass")
 		os.Exit(1)
 	}
+	if err = (&controllers.GeneratorReconciler{
+		Client: mgr.GetClient(),
+		Log:    ctrl.Log.WithName("controllers").WithName("Generator"),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Generator")
+		os.Exit(1)
+	}
+	if err = (&controllers.MaterialReconciler{
+		Client: mgr.GetClient(),
+		Log:    ctrl.Log.WithName("controllers").WithName("Material"),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Material")
+		os.Exit(1)
+	}
 	// +kubebuilder:scaffold:builder
 
 	setupLog.Info("starting manager")

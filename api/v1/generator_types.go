@@ -20,46 +20,45 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+type IOSpec map[string]string
+
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// MaterialClassSpec defines the desired state of MaterialClass
-type MaterialClassSpec struct {
-	MetricFields []MetricFieldSpec `json:"metricFields,omitempty"`
-	CustomGroup  string            `json:"customGroup,omitempty"`
+// GeneratorSpec defines the desired state of Generator
+type GeneratorSpec struct {
+	GeneratorClassName string            `json:"generatorClassName,omitempty"`
+	InputSelector      map[string]string `json:"inputSelector,omitempty"`
+	Inputs             IOSpec            `json:"inputs,omitempty"`
+	Outputs            IOSpec            `json:"outputs,omitempty"`
 }
 
-type MetricFieldSpec struct {
-	Name string `json:"name"`
-	Type string `json:"type"`
-}
-
-// MaterialClassStatus defines the observed state of MaterialClass
-type MaterialClassStatus struct {
+// GeneratorStatus defines the observed state of Generator
+type GeneratorStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
 // +kubebuilder:object:root=true
 
-// MaterialClass is the Schema for the materialclasses API
-type MaterialClass struct {
+// Generator is the Schema for the generators API
+type Generator struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   MaterialClassSpec   `json:"spec,omitempty"`
-	Status MaterialClassStatus `json:"status,omitempty"`
+	Spec   GeneratorSpec   `json:"spec,omitempty"`
+	Status GeneratorStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// MaterialClassList contains a list of MaterialClass
-type MaterialClassList struct {
+// GeneratorList contains a list of Generator
+type GeneratorList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []MaterialClass `json:"items"`
+	Items           []Generator `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&MaterialClass{}, &MaterialClassList{})
+	SchemeBuilder.Register(&Generator{}, &GeneratorList{})
 }

@@ -1,9 +1,9 @@
 apiVersion: base.tapchain.org/v1
 kind: GeneratorClass
 metadata:
-  name: farm
+  name: sun
 spec:
   # Add fields here
-  inputs:
+  outputs:
   - materialClassName: sunlight
     name: sunbeam

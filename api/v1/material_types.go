@@ -23,43 +23,47 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// MaterialClassSpec defines the desired state of MaterialClass
-type MaterialClassSpec struct {
-	MetricFields []MetricFieldSpec `json:"metricFields,omitempty"`
-	CustomGroup  string            `json:"customGroup,omitempty"`
+type Metric struct {
+	Name  string `json:"name,"`
+	Value int    `json:"value,"`
 }
 
-type MetricFieldSpec struct {
-	Name string `json:"name"`
-	Type string `json:"type"`
+// MaterialSpec defines the desired state of Material
+type MaterialSpec struct {
+	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+	// Important: Run "make" to regenerate code after modifying this file
+
+	// Foo is an example field of Material. Edit Material_types.go to remove/update
+	MaterialClassName string   `json:"materialClassName,"`
+	Metrics           []Metric `json:"metrics,omitempty"`
 }
 
-// MaterialClassStatus defines the observed state of MaterialClass
-type MaterialClassStatus struct {
+// MaterialStatus defines the observed state of Material
+type MaterialStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
 // +kubebuilder:object:root=true
 
-// MaterialClass is the Schema for the materialclasses API
-type MaterialClass struct {
+// Material is the Schema for the materials API
+type Material struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   MaterialClassSpec   `json:"spec,omitempty"`
-	Status MaterialClassStatus `json:"status,omitempty"`
+	Spec   MaterialSpec   `json:"spec,omitempty"`
+	Status MaterialStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// MaterialClassList contains a list of MaterialClass
-type MaterialClassList struct {
+// MaterialList contains a list of Material
+type MaterialList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []MaterialClass `json:"items"`
+	Items           []Material `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&MaterialClass{}, &MaterialClassList{})
+	SchemeBuilder.Register(&Material{}, &MaterialList{})
 }

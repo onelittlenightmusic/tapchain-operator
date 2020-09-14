@@ -1,0 +1,11 @@
+apiVersion: base.tapchain.org/v1
+kind: Generator
+metadata:
+  name: thesun
+  labels:
+    beamLevel: high
+spec:
+  # Add fields here
+  generatorClassName: sun
+  outputs:
+    sunbeam: sunlight1

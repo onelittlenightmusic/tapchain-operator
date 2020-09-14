@@ -6,18 +6,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.2.5
   creationTimestamp: null
-  name: materialclasses.base.tapchain.org
+  name: generators.base.tapchain.org
 spec:
   group: base.tapchain.org
   names:
-    kind: MaterialClass
-    listKind: MaterialClassList
-    plural: materialclasses
-    singular: materialclass
+    kind: Generator
+    listKind: GeneratorList
+    plural: generators
+    singular: generator
   scope: Namespaced
   validation:
     openAPIV3Schema:
-      description: MaterialClass is the Schema for the materialclasses API
+      description: Generator is the Schema for the generators API
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
@@ -32,25 +32,25 @@ spec:
         metadata:
           type: object
         spec:
-          description: MaterialClassSpec defines the desired state of MaterialClass
+          description: GeneratorSpec defines the desired state of Generator
           properties:
-            customGroup:
+            generatorClassName:
               type: string
-            metricFields:
-              items:
-                properties:
-                  name:
-                    type: string
-                  type:
-                    type: string
-                required:
-                - name
-                - type
-                type: object
-              type: array
+            inputSelector:
+              additionalProperties:
+                type: string
+              type: object
+            inputs:
+              additionalProperties:
+                type: string
+              type: object
+            outputs:
+              additionalProperties:
+                type: string
+              type: object
           type: object
         status:
-          description: MaterialClassStatus defines the observed state of MaterialClass
+          description: GeneratorStatus defines the observed state of Generator
           type: object
       type: object
   version: v1

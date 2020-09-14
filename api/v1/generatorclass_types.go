@@ -25,11 +25,16 @@ import (
 
 // GeneratorClassSpec defines the desired state of GeneratorClass
 type GeneratorClassSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	Inputs      []PathClassSpec `json:"inputs,omitempty"`
+	Outputs     []PathClassSpec `json:"outputs,omitempty"`
+	Rule        string          `json:"rule,omitempty"`
+	Icon        string          `json:"icon,omitempty"`
+	CustomGroup string          `json:"customGroup,omitempty"`
+}
 
-	// Foo is an example field of GeneratorClass. Edit GeneratorClass_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+type PathClassSpec struct {
+	MaterialClassName string `json:"materialClassName,"`
+	Name              string `json:"name,"`
 }
 
 // GeneratorClassStatus defines the observed state of GeneratorClass

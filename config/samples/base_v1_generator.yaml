@@ -1,0 +1,12 @@
+apiVersion: base.tapchain.org/v1
+kind: Generator
+metadata:
+  name: farm1
+spec:
+  # Add fields here
+  generatorClassName: farm
+  inputSelector:
+    beamLevel: high
+  inputs:
+    sunbeam: sunlight
+

@@ -7,4 +7,10 @@ resources:
 - group: base
   kind: GeneratorClass
   version: v1
+- group: base
+  kind: Generator
+  version: v1
+- group: base
+  kind: Material
+  version: v1
 version: "2"

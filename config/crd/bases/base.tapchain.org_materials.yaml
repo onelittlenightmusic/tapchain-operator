@@ -6,18 +6,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.2.5
   creationTimestamp: null
-  name: materialclasses.base.tapchain.org
+  name: materials.base.tapchain.org
 spec:
   group: base.tapchain.org
   names:
-    kind: MaterialClass
-    listKind: MaterialClassList
-    plural: materialclasses
-    singular: materialclass
+    kind: Material
+    listKind: MaterialList
+    plural: materials
+    singular: material
   scope: Namespaced
   validation:
     openAPIV3Schema:
-      description: MaterialClass is the Schema for the materialclasses API
+      description: Material is the Schema for the materials API
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
@@ -32,25 +32,29 @@ spec:
         metadata:
           type: object
         spec:
-          description: MaterialClassSpec defines the desired state of MaterialClass
+          description: MaterialSpec defines the desired state of Material
           properties:
-            customGroup:
+            materialClassName:
+              description: Foo is an example field of Material. Edit Material_types.go
+                to remove/update
               type: string
-            metricFields:
+            metrics:
               items:
                 properties:
                   name:
                     type: string
-                  type:
-                    type: string
+                  value:
+                    type: integer
                 required:
                 - name
-                - type
+                - value
                 type: object
               type: array
+          required:
+          - materialClassName
           type: object
         status:
-          description: MaterialClassStatus defines the observed state of MaterialClass
+          description: MaterialStatus defines the observed state of Material
           type: object
       type: object
   version: v1
